@@ -1,0 +1,84 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import EntryRow from '../components/EntryRow.astro';
+import { getPublishedPosts, postPath, SECTION_LABEL, type Section } from '../lib/posts';
+import vorlesung from '../assets/vorlesung-tafel.jpg';
+
+const recent = (await getPublishedPosts()).slice(0, 5);
+
+const areas = [
+  { href: '/archiv#graue-substanz', title: 'Graue Substanz', desc: 'Das Wissenschaftsblog aus der Zeit als aktiver Forscher — Migräne aus der Forschungsperspektive.', when: '2009–2015' },
+  { href: '/archiv#allgemeines', title: 'Allgemeines', desc: 'Die neueren Beiträge. Fokus: meine Erfahrung als Wissenschaftler-Unternehmer.', when: 'seit 2023' },
+  { href: '/archiv#migraenegehirn', title: 'Migränegehirn', desc: 'Arbeitstitel eines geplanten Buches. Bis zur Veröffentlichung wird hier öffentlich geschrieben.', when: 'in Arbeit' },
+  { href: '/archiv#gray-matters', title: 'Gray Matters', desc: 'The English-language archive of the early posts — physiology, chaos and the migraine brain.', when: 'English' },
+];
+---
+<Base title="Altamirage — Markus A. Dahlem" current="start">
+  <main>
+    <section class="hero wrap">
+      <h1>Altamirage</h1>
+      <p class="lede">Das Glück, das man erfährt, wenn man sich ein eigenes <em>Terra&nbsp;incognita</em> erst selbst erschafft — und dann auch eintritt.</p>
+      <p class="couplet-line">
+        <span>Serendipität ist, wenn der Zufall das Leben prägt.</span>
+        <span>Altamirage ist, wenn das Leben den Zufall prägt.</span>
+      </p>
+    </section>
+
+    <section class="block wrap reveal">
+      <div class="section-head">
+        <h2>Vier Bereiche</h2>
+        <a class="meta" href="/archiv">Alle Beiträge →</a>
+      </div>
+      <div class="area-list">
+        {areas.map((a) => (
+          <a class="area" href={a.href}>
+            <span class="area-title">{a.title}</span>
+            <span class="area-desc">{a.desc}</span>
+            <span class="area-when">{a.when}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="block wrap reveal">
+      <div class="section-head">
+        <h2>Beiträge</h2>
+        <a class="meta" href="/archiv">Archiv →</a>
+      </div>
+      <div class="entries">
+        {recent.map((post) => (
+          <EntryRow
+            href={postPath(post)}
+            date={String(post.data.pubDate?.getFullYear() ?? post.data.dateLabel ?? '')}
+            title={post.data.title}
+            desc={post.data.description}
+            sectLabel={SECTION_LABEL[post.data.section as Section]}
+            section={post.data.section}
+            pill={post.data.lang === 'en' ? 'EN' : undefined}
+          />
+        ))}
+      </div>
+    </section>
+
+    <section class="block wrap reveal">
+      <div class="author">
+        <div class="text">
+          <span class="eyebrow">Über den Autor</span>
+          <h2>Migräneforscher, der die Physik als Werkzeug nimmt.</h2>
+          <p>Ich bin <b>Markus A. Dahlem</b>. Seit Anfang der 1990er Jahre erforsche ich Migräne — studiert habe ich Physik. Mein Ziel: mathematische Modelle entwickeln, die nachvollziehen, was im Migränegehirn geschieht, und sie in klinisch anwendbares Wissen übersetzen.</p>
+          <p>Wenn ich mit theoretischer Physik gegen Migräne forsche, ist das eine ungewöhnliche Tätigkeit. Genau das ist Altamirage.</p>
+          <div class="links">
+            <a class="btn" href="/vita">Vita lesen</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/markusdahlem/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a class="btn ghost" href="https://scholar.google.com/citations?hl=en&user=1ioM-GYAAAAJ" target="_blank" rel="noopener">Publikationen ↗</a>
+          </div>
+        </div>
+        <figure class="figure">
+          <Image src={vorlesung} alt="Markus A. Dahlem an der Tafel mit Formeln zur Physik der Migräne" />
+          <figcaption class="figcap">Vorlesung an der TU Berlin — die Entropie des Kopfschmerzes an der Tafel.</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+</Base>

@@ -1,0 +1,21 @@
+---
+// A single post row — used on the home page and the archive.
+interface Props {
+  href: string;
+  date: string;
+  title: string;
+  desc?: string;
+  sectLabel: string;        // human label shown on the right ("Graue Substanz")
+  section?: string;         // data-section slug for filtering ("graue-substanz")
+  pill?: string;            // optional badge after the title ("EN", "Buch")
+}
+const { href, date, title, desc, sectLabel, section, pill } = Astro.props;
+---
+<a class="entry" href={href} data-section={section}>
+  <div class="date">{date}</div>
+  <div>
+    <div class="title">{title}{pill && <> <span class="lang-pill">{pill}</span></>}</div>
+    {desc && <p class="desc">{desc}</p>}
+  </div>
+  <div class="sect">{sectLabel}</div>
+</a>

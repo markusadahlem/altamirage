@@ -1,0 +1,95 @@
+---
+// Reading view for a single post. The default slot is the rendered Markdown
+// body. `layout: variations` swaps the .prose body for the numbered taxonomy.
+import type { CollectionEntry } from 'astro:content';
+import Base from './Base.astro';
+import { SECTION_LABEL, longDate, postPath, type Section } from '../lib/posts';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+  prev?: CollectionEntry<'posts'>;
+  next?: CollectionEntry<'posts'>;
+}
+const { post, prev, next } = Astro.props;
+const d = post.data;
+const sectionLabel = SECTION_LABEL[d.section as Section];
+const dotColor = d.eyebrowDot ? `var(--${d.eyebrowDot})` : null;
+---
+<Base
+  title={`${d.title} — Altamirage`}
+  description={d.description}
+  current="archiv"
+  lang={d.lang}
+>
+  <main class="article wrap">
+    <div class="article-head">
+      <span class="eyebrow">
+        {dotColor && <span class="eyebrow-dot" style={`background:${dotColor}`}></span>}
+        {sectionLabel}
+      </span>
+      <h1>{d.title}</h1>
+      <div class="article-meta">
+        <span>{longDate(post)}</span>
+        <span>{d.author}</span>
+        {d.readingTime && <span>{d.readingTime}</span>}
+      </div>
+    </div>
+
+    {d.layout === 'variations' ? (
+      <>
+        {d.standfirst && (
+          <div class="prose"><p class="standfirst" set:html={d.standfirst} /></div>
+        )}
+        <div class="variations">
+          {(d.variations ?? []).map((v) => (
+            <div class="var">
+              <div class="num">{v.num}</div>
+              <div>
+                <h2>
+                  {v.titleAccent
+                    ? <Fragment><span class="efferent" set:html={v.titleAccent} /> {v.title}</Fragment>
+                    : v.title}
+                </h2>
+                <p set:html={v.body} />
+                {v.traits && (
+                  <div class="traits">
+                    {v.traitsLabel && <b>{v.traitsLabel}</b>}
+                    <Fragment set:html={v.traits} />
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="prose" style="margin-top: 2.5rem;">
+          <slot />
+        </div>
+      </>
+    ) : (
+      <article class="prose">
+        {d.standfirst && <p class="standfirst" set:html={d.standfirst} />}
+        <slot />
+      </article>
+    )}
+
+    {(prev || next) && (
+      <nav class="prose article-nav">
+        {next
+          ? <a class="btn ghost" href={postPath(next)}>← {next.data.title}</a>
+          : <a class="btn ghost" href="/archiv">← Zum Archiv</a>}
+        {prev && <a class="btn" href={postPath(prev)}>{prev.data.title} →</a>}
+      </nav>
+    )}
+  </main>
+</Base>
+
+<style>
+  .eyebrow-dot {
+    width: 0.5em;
+    height: 0.5em;
+    display: inline-block;
+    margin-right: 0.5em;
+    vertical-align: middle;
+  }
+  .efferent { color: var(--efferent); }
+</style>

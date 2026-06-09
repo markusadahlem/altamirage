@@ -1,0 +1,105 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import vorlesung from '../assets/vorlesung-tafel.jpg';
+import innovation from '../assets/innovation-politik.jpg';
+
+const werdegang = [
+  { when: '2023 — heute', role: 'VP Discovery & Translational Science', org: 'Click Therapeutics', where: 'New York, NY · USA' },
+  { when: '2015 — 2022', role: 'CEO & Founder', org: 'Newsenselab GmbH', where: 'Berlin · Deutschland' },
+  { when: '2000 — heute', role: 'Founder', org: 'Migräne Aura Stiftung', where: 'Berlin · Deutschland' },
+  { when: '2013 — 2017', role: 'Senior Scientist', org: 'Humboldt-Universität zu Berlin', where: 'Berlin · Deutschland' },
+  { when: '2012 — 2013', role: 'Visiting Scholar', org: 'The Ohio State University', where: 'Columbus, Ohio · USA' },
+  { when: '2007 — 2012', role: 'Senior Scientist', org: 'Technische Universität Berlin', where: 'Berlin · Deutschland' },
+  { when: '2003 — 2006', role: 'Research Group Leader', org: 'Otto-von-Guericke-Universität Magdeburg', where: 'Magdeburg · Deutschland' },
+  { when: '2000 — 2002', role: 'Research Associate', org: 'University of Stirling', where: 'Stirling · UK' },
+  { when: '1992 — 1996', role: 'Student & Research Assistant — Pattern formation in neural tissue', org: 'Max-Planck-Institut für molekulare Physiologie', where: 'Dortmund · Deutschland' },
+];
+
+const ausbildung = [
+  { when: '2003 — 2004', role: 'Continued Education — Entrepreneurship', org: 'Otto-von-Guericke-Universität Magdeburg', where: 'Magdeburg · Deutschland' },
+  { when: '1995 — 2000', role: 'PhD Physics', org: 'Otto-von-Guericke-Universität Magdeburg', where: 'Magdeburg · Deutschland' },
+  { when: '1996', role: 'Postgraduate Studies — Mathematical Biology', org: 'University of Utah', where: 'Salt Lake City · USA' },
+  { when: '1990 — 1994', role: 'Diplom Physics', org: 'Universität Göttingen', where: 'Göttingen · Deutschland' },
+  { when: '1988 — 1990', role: 'Vordiplom Physics', org: 'RWTH Aachen University', where: 'Aachen · Deutschland' },
+];
+---
+<Base title="Vita — Markus A. Dahlem · Altamirage" description="Vita von Markus A. Dahlem — Physiker, Migräneforscher, Wissenschaftler-Unternehmer." current="vita">
+  <main>
+    <section class="article wrap" style="padding-bottom: 1rem;">
+      <div class="article-head">
+        <span class="eyebrow">Über den Autor</span>
+        <h1>Markus A. Dahlem</h1>
+        <div class="article-meta">
+          <span>Physiker</span>
+          <span>Migräneforscher</span>
+          <span>Wissenschaftler-Unternehmer</span>
+        </div>
+      </div>
+
+      <article class="prose">
+        <p class="standfirst">Seit Anfang der 1990er Jahre erforsche ich Migräne. Studiert habe ich Physik. Mein Ziel: mathematische Modelle entwickeln, die im Computer nachvollziehen, was im Migränegehirn geschieht — und sie in klinisch anwendbares Wissen übersetzen.</p>
+
+        <p><em>Discovery</em> und <em>Translation</em> treiben mich an — als Wissenschaftler beziehungsweise als Unternehmer.</p>
+
+        <p>Studiert habe ich in Aachen, Göttingen und Magdeburg Physik sowie in Salt Lake City mathematische Biologie. Danach hat mich meine Forschung in unterschiedlichste Fachgebiete verschlagen: ans Max-Planck-Institut für Ernährungsphysiologie in Dortmund, in die Biomedizintechnik an der Universität Campinas (Brasilien), an die Stirling University, an die Universitätsklinik für Neurologie in Magdeburg, ans Mathematical Biosciences Institute der Ohio State University, schließlich als Gastdozent an die TU Berlin und die Humboldt-Universität sowie ans Max-Planck-Institut für Physik komplexer Systeme.</p>
+
+        <figure class="wide">
+          <Image src={vorlesung} alt="Markus A. Dahlem an der Tafel an der TU Berlin." />
+          <figcaption>Vorlesung an der TU Berlin. Jeder Ort, jedes Fachgebiet trug ein wenig zu meinen Fragen bei: Wie simuliert man Migräne am Computer? Wie sagt man Attacken vorher — und was lernen wir therapeutisch daraus?</figcaption>
+        </figure>
+
+        <h2>Migräne Aura Stiftung</h2>
+        <p>2003 habe ich mit Dr. med. Klaus Podoll die <strong>Migräne Aura Stiftung</strong> gegründet. Sie erstellt medizinische Informationen und Materialien, die Migränepatienten helfen, ihre neurologischen Symptome zu erkennen, zu verstehen und mehr Verantwortung für ihre Gesundheit zu übernehmen.</p>
+
+        <h2>Newsenselab &amp; M-sense</h2>
+        <p>Anfang 2016 habe ich mit Stefan Greiner, Simon Scholler und Martin Lysk das Berliner Startup <strong>Newsenselab</strong> gegründet. Wir entwickelten eine digitale Therapie für Migräne und Kopfschmerzen, die als DiGA <strong>M-sense Migräne</strong> — eine „App auf Rezept" — im Dezember 2020 zugelassen wurde. Mein Fazit: in acht großartigen Jahren viel an Erfahrung gewonnen.</p>
+
+        <figure class="wide">
+          <Image src={innovation} alt="Treffen im BfArM: Innovation trifft Politik." />
+          <figcaption>Treffen im BfArM: „Innovation trifft Politik" — über die Chancen der Digitalisierung in der Medizin.</figcaption>
+        </figure>
+      </article>
+    </section>
+
+    <section class="block wrap reveal">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Tabellarischer Lebenslauf</span>
+          <h2>Stationen</h2>
+        </div>
+        <a class="meta" href="https://www.linkedin.com/in/markusdahlem/" target="_blank" rel="noopener">LinkedIn →</a>
+      </div>
+
+      <div style="max-width: 56rem;">
+        <h3 class="mono" style="font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); margin: 0 0 0.4rem;">Beruflicher Werdegang</h3>
+        <div class="timeline">
+          {werdegang.map((r) => (
+            <div class="tl-row">
+              <div class="when">{r.when}</div>
+              <div class="what"><h3>{r.role}</h3><div class="org">{r.org}</div><div class="where">{r.where}</div></div>
+            </div>
+          ))}
+        </div>
+
+        <h3 class="mono" style="font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); margin: 2.6rem 0 0.4rem;">Ausbildung</h3>
+        <div class="timeline">
+          {ausbildung.map((r) => (
+            <div class="tl-row">
+              <div class="when">{r.when}</div>
+              <div class="what"><h3>{r.role}</h3><div class="org">{r.org}</div><div class="where">{r.where}</div></div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="prose" style="margin-top: 2.5rem;">
+        <p style="display:flex; gap:0.7rem; flex-wrap:wrap;">
+          <a class="btn" href="https://scholar.google.com/citations?hl=en&user=1ioM-GYAAAAJ" target="_blank" rel="noopener">Publikationen ↗</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/markusdahlem/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn ghost" href="/archiv">Zum Archiv</a>
+        </p>
+      </div>
+    </section>
+  </main>
+</Base>

@@ -1,1 +1,15 @@
 .DS_Store
+
+# build output
+dist/
+
+# dependencies
+node_modules/
+
+# generated types
+.astro/
+
+# environment / logs
+.env
+.env.production
+npm-debug.log*

@@ -1,0 +1,135 @@
+---
+// Base layout — head, self-hosted fonts, theme system, masthead + footer.
+import Masthead from '../components/Masthead.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+// Self-hosted fonts (replaces the handoff's Google Fonts @import).
+import '@fontsource/spectral/200.css';
+import '@fontsource/spectral/300.css';
+import '@fontsource/spectral/400.css';
+import '@fontsource/spectral/500.css';
+import '@fontsource/spectral/300-italic.css';
+import '@fontsource/spectral/400-italic.css';
+import '@fontsource/spline-sans-mono/400.css';
+import '@fontsource/spline-sans-mono/500.css';
+
+// LaTeX rendering (remark-math + rehype-katex).
+import 'katex/dist/katex.min.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  current?: 'start' | 'archiv' | 'was-ist-altamirage' | 'vita';
+  lang?: string;
+}
+const {
+  title,
+  description = 'Altamirage — wenn das Leben den Zufall prägt. Das Blog von Markus A. Dahlem über Migräne, theoretische Physik und das Gehirn.',
+  current,
+  lang = 'de',
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  {/* Apply the stored theme before first paint to avoid a flash. */}
+  <script is:inline>
+    try {
+      if (localStorage.getItem('altamirage-theme') === 'slate') {
+        document.documentElement.setAttribute('data-theme', 'slate');
+      }
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <Masthead current={current} />
+  <slot />
+  <Footer />
+
+  <script is:inline>
+    /* Altamirage — shared behaviour: light/dark toggle, nav, reveal, filter */
+    (function () {
+      var KEY = 'altamirage-theme';
+      function isDark() {
+        try { return localStorage.getItem(KEY) === 'slate'; } catch (e) { return false; }
+      }
+      function apply(dark) {
+        if (dark) document.documentElement.setAttribute('data-theme', 'slate');
+        else document.documentElement.removeAttribute('data-theme');
+        document.querySelectorAll('.theme-toggle').forEach(function (b) {
+          b.textContent = dark ? 'Hell' : 'Dunkel';
+          b.setAttribute('aria-pressed', String(dark));
+        });
+        try { localStorage.setItem(KEY, dark ? 'slate' : 'paper'); } catch (e) {}
+      }
+
+      function ready(fn) {
+        if (document.readyState !== 'loading') fn();
+        else document.addEventListener('DOMContentLoaded', fn);
+      }
+
+      ready(function () {
+        apply(isDark());
+
+        document.querySelectorAll('.theme-toggle').forEach(function (b) {
+          b.addEventListener('click', function () { apply(!isDark()); });
+        });
+
+        // mobile nav
+        var toggle = document.querySelector('.nav-toggle');
+        var nav = document.querySelector('.nav');
+        if (toggle && nav) {
+          toggle.addEventListener('click', function () { nav.classList.toggle('open'); });
+        }
+
+        // reveal on scroll
+        var els = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window && els.length) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+              if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+            });
+          }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+          els.forEach(function (el) { io.observe(el); });
+        } else {
+          els.forEach(function (el) { el.classList.add('in'); });
+        }
+
+        // archive filter
+        var filterBar = document.querySelector('.filterbar');
+        if (filterBar) {
+          var entries = Array.prototype.slice.call(document.querySelectorAll('.entries .entry'));
+          function applyFilter(f) {
+            filterBar.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.filter === f)); });
+            entries.forEach(function (en) {
+              en.hidden = !(f === 'all' || en.dataset.section === f);
+            });
+            var count = document.querySelector('[data-count]');
+            if (count) {
+              var n = entries.filter(function (e) { return !e.hidden; }).length;
+              count.textContent = (n < 10 ? '0' + n : n) + ' Beiträge';
+            }
+          }
+          filterBar.querySelectorAll('button').forEach(function (btn) {
+            btn.addEventListener('click', function () { applyFilter(btn.dataset.filter); });
+          });
+          var hash = (location.hash || '').replace('#', '');
+          var valid = ['graue-substanz', 'allgemeines', 'migraenegehirn', 'gray-matters'];
+          if (valid.indexOf(hash) !== -1) applyFilter(hash);
+        }
+
+        // prevent placeholder links from jumping to top
+        document.querySelectorAll('a[href="#"]').forEach(function (a) {
+          a.addEventListener('click', function (e) { e.preventDefault(); });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

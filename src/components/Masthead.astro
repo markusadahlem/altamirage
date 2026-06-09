@@ -1,0 +1,25 @@
+---
+// Sticky, translucent masthead. `current` highlights the active nav item.
+interface Props {
+  current?: 'start' | 'archiv' | 'was-ist-altamirage' | 'vita';
+}
+const { current } = Astro.props;
+const items = [
+  { key: 'start', href: '/', label: 'Start' },
+  { key: 'archiv', href: '/archiv', label: 'Archiv' },
+  { key: 'was-ist-altamirage', href: '/was-ist-altamirage', label: 'Was ist Altamirage?' },
+  { key: 'vita', href: '/vita', label: 'Vita' },
+] as const;
+---
+<header class="masthead">
+  <div class="masthead-in">
+    <a class="brand" href="/">Altamirage</a>
+    <nav class="nav">
+      {items.map((i) => (
+        <a href={i.href} class={current === i.key ? 'current' : undefined}>{i.label}</a>
+      ))}
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Hell oder dunkel umschalten">Dunkel</button>
+    <button class="btn ghost nav-toggle" type="button" aria-label="Menü">Menü</button>
+  </div>
+</header>

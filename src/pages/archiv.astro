@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+import EntryRow from '../components/EntryRow.astro';
+
+// Curated archive (ported from the design). Migrated posts link to their real
+// pages; not-yet-migrated posts use "#" (the shared script disables the jump).
+// As more posts are migrated, swap their `href` to the real path.
+type Row = { date: string; title: string; desc: string; section: string; href: string; pill?: string };
+
+const entries: Row[] = [
+  { date: 'in Arbeit', section: 'migraenegehirn', href: '#', pill: 'Buch', title: 'Das Migränegehirn', desc: 'Arbeitstitel eines geplanten Buches. Bis zur Veröffentlichung entsteht der Text öffentlich — vorerst als Inhaltsangabe.' },
+  { date: '30.01.2023', section: 'allgemeines', href: '#', title: '30 Jahre altes, modernes Lehrbuch', desc: 'Ein Physiologie-Lehrbuch, das die Zeit überdauert — über das, was an der Lehre der Körperfunktionen wirklich modern ist.' },
+  { date: '29.01.2023', section: 'allgemeines', href: '/was-ist-altamirage', title: 'Was ist Altamirage?', desc: 'Eine wenig bekannte Variante der glücklichen Entdeckung — aus der Neurologie, wo Sensorik und Motorik anatomisch getrennt sind.' },
+  { date: '25.01.2023', section: 'allgemeines', href: '/die-vier-variationen-des-gluecks', title: 'Die vier Variationen des Glücks', desc: 'Vom blanken Glück über Bewegung und fachlichen Spürsinn bis zur ausgefallenen Tätigkeit — eine Taxonomie des Zufalls.' },
+  { date: '01.02.2023', section: 'allgemeines', href: '/statistische-physik-und-das-gehirn', title: 'Statistische Physik und das Gehirn', desc: 'Vom neuronalen Netzwerk zum Phasenraum: was die statistische Physik über kollektive Zustände im Nervengewebe verrät.' },
+  { date: '2023', section: 'allgemeines', href: '#', title: 'Serial Entrepreneur als glücklicher Mensch', desc: 'Wir müssen uns den Serial Entrepreneur als einen glücklichen Menschen vorstellen — eine quixotische Sisyphos-Notiz.' },
+  { date: '30.08.2015', section: 'graue-substanz', href: '#', title: 'Oliver Sacks (1933–2015)', desc: 'Zum Tod eines Neurologen, der die willkürliche Grenze zwischen Wissenschaft und Literatur aufhob.' },
+  { date: '23.06.2015', section: 'graue-substanz', href: '#', title: 'Gehirnerschütterungen im Sport — nicht nur Profis', desc: 'Warum das Risiko wiederholter Kopfverletzungen weit über den Profisport hinausreicht.' },
+  { date: '24.04.2015', section: 'graue-substanz', href: '#', title: 'Spielen Sportarten Gehirnerschütterungen herunter?', desc: 'Über die systematische Verharmlosung von Concussions in populären Sportarten.' },
+  { date: '18.11.2014', section: 'graue-substanz', href: '#', title: 'Neue UEFA-Regel — 3 Minuten zur Diagnose', desc: 'Chronisch traumatische Enzephalopathie und die Frage, ob drei Minuten am Spielfeldrand genügen.' },
+  { date: '05.10.2014', section: 'graue-substanz', href: '#', title: 'Kosten der Kopfbälle', desc: 'Was es das Gehirn kostet, einen Fußball mit dem Kopf zu spielen — eine Bilanz.' },
+  { date: '29.06.2014', section: 'graue-substanz', href: '#', title: 'Sportler spenden ihre Gehirne', desc: 'Über die Hirnbanken, in denen Athleten ihr wichtigstes Organ der Forschung vermachen.' },
+  { date: '30.12.2012', section: 'gray-matters', href: '#', pill: 'EN', title: 'The butcher and lepidopterist', desc: "On two ways of knowing the body — the butcher's cut and the lepidopterist's catalogue." },
+  { date: '11.02.2011', section: 'gray-matters', href: '#', pill: 'EN', title: 'Only About.com, WebMD and Mayo Clinic?', desc: 'Who else is doing online health information right — and who is auscultating in the dark.' },
+  { date: '28.01.2011', section: 'gray-matters', href: '#', pill: 'EN', title: 'Superheros fight migraines', desc: '…wearing tinted goggles and Calvin Klein underwear. On light sensitivity and the aura.' },
+  { date: '01.01.2011', section: 'gray-matters', href: '#', pill: 'EN', title: 'A deluxe brain feels no pain', desc: 'The cortex itself is insensate — so where does the headache of migraine come from?' },
+  { date: '07.08.2010', section: 'gray-matters', href: '#', pill: 'EN', title: 'Top down physiology', desc: 'A case for teaching physiology from the whole organism down to the molecule.' },
+  { date: '05.08.2010', section: 'gray-matters', href: '#', pill: 'EN', title: 'Physiology organized by major body systems', desc: 'How the conventional system-by-system map of the body both helps and hinders.' },
+  { date: '04.08.2010', section: 'gray-matters', href: '#', pill: 'EN', title: 'What is physiology?', desc: 'The science of function — and why it sits uneasily between anatomy and medicine.' },
+  { date: '30.01.2010', section: 'gray-matters', href: '#', pill: 'EN', title: 'Math Matters, apply it to neurology', desc: 'The case for mathematics as a clinical instrument, not merely a descriptive one.' },
+  { date: '26.01.2010', section: 'graue-substanz', href: '#', title: 'Schweinegrippe und Epilepsie', desc: 'Über einen unerwarteten Zusammenhang zwischen Influenza-Impfung und Anfallsleiden.' },
+  { date: '19.01.2010', section: 'graue-substanz', href: '#', title: 'Europa, Fußballstadion, Großhirnrinde', desc: 'Drei Maßstäbe, eine Geometrie — wie sich Wellen über gekrümmte Flächen ausbreiten.' },
+  { date: '11.01.2010', section: 'graue-substanz', href: '/physik-der-migraene', title: 'Physik der Migräne', desc: 'Was Physiker mit Migräne zu tun haben: nichtlineare Dynamik, Synergetik und Chaos-Kontrolle im Gehirn.' },
+  { date: '01.12.2009', section: 'graue-substanz', href: '#', title: 'Ich sehe was, was du nicht siehst', desc: 'Über die visuelle Migräneaura — und was sie über die Architektur des Sehens verrät.' },
+  { date: '25.11.2009', section: 'gray-matters', href: '#', pill: 'EN', title: 'Migraine and Chaos', desc: 'How concepts from nonlinear dynamics describe the spreading wave at the onset of an attack.' },
+  { date: '23.11.2009', section: 'gray-matters', href: '/gray-matters', pill: 'EN', title: 'Gray Matters', desc: 'Theoretical physics and clinical neurology, as distant as black and white? Then we need gray.' },
+  { date: '12.11.2009', section: 'graue-substanz', href: '#', title: 'Killerwellen vom Ozean ins Gehirn', desc: 'Freak waves auf hoher See und die langsame Welle der Depolarisation — eine Analogie.' },
+  { date: '02.11.2009', section: 'graue-substanz', href: '#', title: 'Geist einer Sattel-Knoten-Verzweigung', desc: 'Eine Bifurkation als Schwelle zwischen Ruhe und Erregung — Geometrie eines Kipppunkts.' },
+];
+
+const SECTION_LABEL: Record<string, string> = {
+  'graue-substanz': 'Graue Substanz',
+  'allgemeines': 'Allgemeines',
+  'migraenegehirn': 'Migränegehirn',
+  'gray-matters': 'Gray Matters',
+};
+---
+<Base title="Archiv — Altamirage" description="Alle Beiträge von Altamirage — Graue Substanz, Allgemeines, Migränegehirn und Gray Matters." current="archiv">
+  <main>
+    <section class="hero wrap" style="padding-bottom: 1rem;">
+      <span class="eyebrow">Vollständiges Verzeichnis</span>
+      <h1 style="font-size: clamp(2.6rem, 8vw, 5.5rem);">Archiv</h1>
+      <p class="lede" style="max-width: 44ch; font-size: clamp(1.1rem,2vw,1.4rem);">Über 200 Beiträge entstanden seit 2009. Hier eine Auswahl aus vier Bereichen — gespiegelt und nachhaltig archiviert.</p>
+
+      <div class="filterbar" role="group" aria-label="Nach Bereich filtern">
+        <button data-filter="all" aria-pressed="true" type="button">Alle</button>
+        <button data-filter="graue-substanz" aria-pressed="false" type="button">Graue Substanz</button>
+        <button data-filter="allgemeines" aria-pressed="false" type="button">Allgemeines</button>
+        <button data-filter="migraenegehirn" aria-pressed="false" type="button">Migränegehirn</button>
+        <button data-filter="gray-matters" aria-pressed="false" type="button">Gray Matters</button>
+      </div>
+      <p class="mono" data-count style="font-size:0.72rem; letter-spacing:0.08em; color:var(--ink-faint); margin-top:1.1rem; text-transform:uppercase;">{entries.length} Beiträge</p>
+    </section>
+
+    <section class="wrap" style="padding-bottom: 2rem;">
+      <div class="entries">
+        {entries.map((e) => (
+          <EntryRow
+            href={e.href}
+            date={e.date}
+            title={e.title}
+            desc={e.desc}
+            sectLabel={SECTION_LABEL[e.section]}
+            section={e.section}
+            pill={e.pill}
+          />
+        ))}
+      </div>
+    </section>
+  </main>
+</Base>
