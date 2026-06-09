@@ -63,17 +63,20 @@ Footnotes work too.[^1]
 - **Numbered-taxonomy layout:** set `layout: variations` and provide a `variations:`
   array in frontmatter (see `die-vier-variationen-des-gluecks.md`).
 
-The home page lists the five newest posts automatically. The archive
-(`src/pages/archiv.astro`) is currently a curated list — swap a row's `href` to the
-real path as each legacy post is migrated.
+The home page lists the five newest posts automatically, and the archive
+(`src/pages/archiv.astro`) is generated from the posts collection (plus two fixed
+entries: the standalone "Was ist Altamirage?" page and the "Migränegehirn" book
+placeholder). New posts appear in both automatically — no manual list to maintain.
 
 ## Content migration
 
 The original Blot.im export lives in `legacy-source/` as a migration reference
-(not built). Four representative posts have been migrated so far; the rest are
-converted incrementally by copying the Markdown, rewriting the frontmatter to the
-schema above, fixing image paths to `./_name.png`, and converting inline `$$…$$`
-to `$…$` where appropriate.
+(not built). All published Graue Substanz, Gray Matters and Allgemeines articles
+have been migrated. Still in `legacy-source/` and not yet migrated (by choice):
+the `[draft]` posts, the ~27 "Impressionen" lecture snippets, the `migraena-aura-stiftung`
+and CV pages, and `_serial-sysiphos` (a stub). Convert any of these the same way:
+copy the Markdown, rewrite frontmatter to the schema above, fix image paths to
+`./_name.png`, and convert inline `$$…$$` to `$…$` where appropriate.
 
 ## Deployment
 
