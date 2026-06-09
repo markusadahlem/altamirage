@@ -2,7 +2,7 @@
 title: Math Matters, Apply It To Neurology
 description: 'Mathematics is as sharp as a scalpel and cuts brain malfunctioning into pieces.'
 pubDate: 2010-01-30
-section: gray-matters
+section: graue-substanz
 lang: en
 slug: math-matters-apply-it
 readingTime: ≈ 4 min read

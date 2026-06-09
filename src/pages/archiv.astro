@@ -34,32 +34,21 @@ const extraRows: Row[] = [
     section: 'allgemeines',
     sort: Date.UTC(2023, 0, 29),
   },
-  {
-    href: '#',
-    date: 'in Arbeit',
-    title: 'Das Migränegehirn',
-    desc: 'Arbeitstitel eines geplanten Buches. Bis zur Veröffentlichung entsteht der Text öffentlich — vorerst als Inhaltsangabe.',
-    section: 'migraenegehirn',
-    pill: 'Buch',
-    sort: Number.MAX_SAFE_INTEGER, // pin to the top
-  },
 ];
 
 const rows = [...collectionRows, ...extraRows].sort((a, b) => b.sort - a.sort);
 ---
-<Base title="Archiv — Altamirage" description="Alle Beiträge von Altamirage — Graue Substanz, Allgemeines, Migränegehirn und Gray Matters." current="archiv">
+<Base title="Archiv — Altamirage" description="Alle Beiträge von Altamirage — Graue Substanz und Allgemeines, auf Deutsch und Englisch." current="archiv">
   <main>
     <section class="hero wrap" style="padding-bottom: 1rem;">
       <span class="eyebrow">Vollständiges Verzeichnis</span>
       <h1 style="font-size: clamp(2.6rem, 8vw, 5.5rem);">Archiv</h1>
-      <p class="lede" style="max-width: 44ch; font-size: clamp(1.1rem,2vw,1.4rem);">Beiträge aus vier Bereichen seit 2009 — gespiegelt und nachhaltig archiviert.</p>
+      <p class="lede" style="max-width: 44ch; font-size: clamp(1.1rem,2vw,1.4rem);">Alle Beiträge seit 2009 — deutsch und englisch, gespiegelt und nachhaltig archiviert.</p>
 
       <div class="filterbar" role="group" aria-label="Nach Bereich filtern">
         <button data-filter="all" aria-pressed="true" type="button">Alle</button>
         <button data-filter="graue-substanz" aria-pressed="false" type="button">Graue Substanz</button>
         <button data-filter="allgemeines" aria-pressed="false" type="button">Allgemeines</button>
-        <button data-filter="migraenegehirn" aria-pressed="false" type="button">Migränegehirn</button>
-        <button data-filter="gray-matters" aria-pressed="false" type="button">Gray Matters</button>
       </div>
       <p class="mono" data-count style="font-size:0.72rem; letter-spacing:0.08em; color:var(--ink-faint); margin-top:1.1rem; text-transform:uppercase;">{rows.length} Beiträge</p>
     </section>

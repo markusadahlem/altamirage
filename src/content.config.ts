@@ -10,7 +10,7 @@ const posts = defineCollection({
     pubDate: z.coerce.date().optional(),
     // Optional display override for the date column ("in Arbeit", "2023", …).
     dateLabel: z.string().optional(),
-    section: z.enum(['graue-substanz', 'allgemeines', 'migraenegehirn', 'gray-matters']),
+    section: z.enum(['graue-substanz', 'allgemeines']),
     lang: z.enum(['de', 'en']).default('de'),
     // Preserve the old Blot.im `Link:` slug to keep existing URLs alive.
     slug: z.string().optional(),

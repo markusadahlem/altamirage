@@ -2,7 +2,7 @@
 title: Superheros Fight Migraines Wearing Tinted Goggles and Calvin Klein Underwear
 description: 'Migraine in US sports news is a chance to raise awareness of a widespread disease, an opportunity German players seem too embarrassed to take.'
 pubDate: 2011-01-28
-section: gray-matters
+section: graue-substanz
 lang: en
 slug: superheros-fight-migraines
 readingTime: ≈ 4 min read

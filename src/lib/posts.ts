@@ -1,12 +1,10 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-export type Section = 'graue-substanz' | 'allgemeines' | 'migraenegehirn' | 'gray-matters';
+export type Section = 'graue-substanz' | 'allgemeines';
 
 export const SECTION_LABEL: Record<Section, string> = {
   'graue-substanz': 'Graue Substanz',
   'allgemeines': 'Allgemeines',
-  'migraenegehirn': 'Migränegehirn',
-  'gray-matters': 'Gray Matters',
 };
 
 /** The URL for a post: its old Blot.im `Link:` slug when present, else the file id. */

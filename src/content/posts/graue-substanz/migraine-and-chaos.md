@@ -2,7 +2,7 @@
 title: Migraine and Chaos
 description: 'How chaos theory really relates to migraine: not chaotic dynamics, but a shared mathematical framework of nonlinear, self-organising waves.'
 pubDate: 2009-11-25
-section: gray-matters
+section: graue-substanz
 lang: en
 slug: migraine-and-chaos
 readingTime: ≈ 9 min read

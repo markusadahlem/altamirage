@@ -2,7 +2,7 @@
 title: Top Down Physiology
 description: 'Nature reuses a few generic control strategies across body systems—and they fail in generic ways too, which can help infer pathology from symptoms.'
 pubDate: 2010-08-07
-section: gray-matters
+section: graue-substanz
 lang: en
 slug: top-down-physiology
 readingTime: ≈ 5 min read

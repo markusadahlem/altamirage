@@ -2,7 +2,7 @@
 title: Only About.com WebMD and Mayo Clinic?
 description: 'A NYT Magazine critique of WebMD sparks a fight over online health information—and raises the question of who the truly independent big players are.'
 pubDate: 2011-02-11
-section: gray-matters
+section: graue-substanz
 lang: en
 slug: webmd-mayo-clinic-and-who-else
 readingTime: ≈ 4 min read

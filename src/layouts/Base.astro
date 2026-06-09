@@ -121,7 +121,7 @@ const {
             btn.addEventListener('click', function () { applyFilter(btn.dataset.filter); });
           });
           var hash = (location.hash || '').replace('#', '');
-          var valid = ['graue-substanz', 'allgemeines', 'migraenegehirn', 'gray-matters'];
+          var valid = ['graue-substanz', 'allgemeines'];
           if (valid.indexOf(hash) !== -1) applyFilter(hash);
         }
 

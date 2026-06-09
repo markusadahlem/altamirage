@@ -2,7 +2,7 @@
 title: Physiology Organized by Major Body Systems
 description: 'Why organizing physiology by the major human body systems makes sense, and how the Bologna process is shaping a common European standard.'
 pubDate: 2010-08-05
-section: gray-matters
+section: graue-substanz
 lang: en
 slug: physiology-organized-by-major-body-systems
 readingTime: ≈ 6 min read

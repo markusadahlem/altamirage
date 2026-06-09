@@ -2,7 +2,7 @@
 title: Gray Matters
 description: "Theoretical physics and clinical neurology, as distant as black and white? Then we need gray. Gray matters."
 pubDate: 2009-11-23
-section: gray-matters
+section: graue-substanz
 lang: en
 slug: gray-matters
 readingTime: ≈ 5 min read

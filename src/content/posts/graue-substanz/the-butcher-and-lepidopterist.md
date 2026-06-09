@@ -2,7 +2,7 @@
 title: The Butcher and Lepidopterist
 description: 'A New Jersey butcher, Uncle Sepp, turns out to have been a serious butterfly collector who questioned whether air pollution was harming insects.'
 pubDate: 2012-12-30
-section: gray-matters
+section: graue-substanz
 lang: en
 slug: the-butcher-and-lepidopterist
 readingTime: ≈ 2 min read

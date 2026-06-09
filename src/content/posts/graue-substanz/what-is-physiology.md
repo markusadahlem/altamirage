@@ -2,7 +2,7 @@
 title: What Is Physiology?
 description: 'A physiologist sets out to find a clear definition of physiology in the encyclopedias—and is surprised how hard a good answer is to come by.'
 pubDate: 2010-08-04
-section: gray-matters
+section: graue-substanz
 lang: en
 slug: what-is-physiology
 readingTime: ≈ 4 min read

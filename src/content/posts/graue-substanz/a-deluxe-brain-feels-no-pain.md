@@ -2,7 +2,7 @@
 title: A Deluxe Brain Feels No Pain
 description: 'A new Berlin Collaborative Research Centre brings the precise language of mathematics to neuroscience, promising better diagnostics and therapies.'
 pubDate: 2011-01-01
-section: gray-matters
+section: graue-substanz
 lang: en
 slug: a-deluxe-brain-feels-no-pain
 readingTime: ≈ 4 min read
