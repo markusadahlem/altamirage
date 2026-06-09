@@ -10,7 +10,6 @@ Bachestraße 9
 _Vertreten durch:_   
 Markus Dahlem   
 _Kontakt:_   
-Telefon: 0172 -1973 680   
 E-Mail: markus.dahlem@dahlem.ch   
 
 _Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:_    
