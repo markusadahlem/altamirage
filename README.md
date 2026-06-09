@@ -96,7 +96,7 @@ Configure DNS at your registrar:
 | AAAA  | `@`   | `2606:50c0:8001::153`          |
 | AAAA  | `@`   | `2606:50c0:8002::153`          |
 | AAAA  | `@`   | `2606:50c0:8003::153`          |
-| CNAME | `www` | `<your-github-username>.github.io.` |
+| CNAME | `www` | `markusadahlem.github.io.`      |
 
 Then in **Settings → Pages**, set the custom domain to `altamirage.de` and enable
 **Enforce HTTPS** once the certificate is issued.
