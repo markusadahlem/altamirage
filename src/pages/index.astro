@@ -1,61 +1,125 @@
 ---
-import { Image } from 'astro:assets';
-import Base from '../layouts/Base.astro';
-import EntryRow from '../components/EntryRow.astro';
-import { getPublishedPosts, postPath, SECTION_LABEL, type Section } from '../lib/posts';
-import vorlesung from '../assets/vorlesung-tafel.jpg';
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import EntryRow from "../components/EntryRow.astro";
+import {
+    getPublishedPosts,
+    postPath,
+    SECTION_LABEL,
+    type Section,
+} from "../lib/posts";
+import vorlesung from "../assets/vorlesung-tafel.jpg";
 
 const recent = (await getPublishedPosts()).slice(0, 12);
 ---
+
 <Base title="Altamirage — Markus A. Dahlem" current="start">
-  <main>
-    <section class="hero wrap">
-      <h1>Altamirage</h1>
-      <p class="lede">Das Glück, ein eigenes <em>Terra&nbsp;incognita</em> zu erschaffen – und den ersten Schritt hinein zu wagen.</p>
-      <p class="couplet-line">
-        <span>Serendipität ist, wenn der Zufall das Leben prägt.</span>
-        <span>Altamirage ist, wenn das Leben den Zufall prägt.</span>
-      </p>
-    </section>
+    <main>
+        <section class="hero wrap">
+            <h1>Altamirage</h1>
+            <p class="lede">
+                Das Glück, ein eigenes <em>Terra&nbsp;incognita</em> zu erschaffen
+                – und den ersten Schritt hinein zu wagen.
+            </p>
+        </section>
 
-    <section class="block wrap reveal">
-      <div class="section-head">
-        <h2>Beiträge</h2>
-        <a class="meta" href="/archiv">Alle Beiträge →</a>
-      </div>
-      <div class="entries">
-        {recent.map((post) => (
-          <EntryRow
-            href={postPath(post)}
-            date={String(post.data.pubDate?.getFullYear() ?? post.data.dateLabel ?? '')}
-            title={post.data.title}
-            desc={post.data.description}
-            sectLabel={SECTION_LABEL[post.data.section as Section]}
-            section={post.data.section}
-            pill={post.data.lang === 'en' ? 'EN' : undefined}
-          />
-        ))}
-      </div>
-    </section>
+        <section class="block wrap reveal">
+            <div class="author">
+                <div class="text">
+                    <span class="eyebrow">Über den Autor</span>
+                    <h2>Migräneforscher, der die Physik als Werkzeug nimmt.</h2>
+                    <p>
+                        Ich bin <b>Markus A. Dahlem</b>. Anfang der 1990er Jahre
+                        kam ich zur Migräneforschung — studiert hatte ich zuvor
+                        Physik. Die Physik der Migräne war mein erstes <i
+                            >Terra incognita</i
+                        >: mit Mathematik nachvollziehen, was im Migränegehirn
+                        geschieht, und das in klinisch nutzbares Wissen
+                        übersetzen.
+                    </p>
+                    <p>
+                        Anfang der 2000er erklärte ich der AOK, es sei eine gute
+                        Idee, mit einem Nokia-Handy Migräne von Vorboten des
+                        Schlaganfalls zu unterscheiden und Betroffenen den Weg
+                        in die Notaufnahme zu ersparen. Ein Unternehmen
+                        gegründet habe ich dann 2015. Auch das scheiterte zwar
+                        nach weiteren 8 Jahre. Doch wurde unsere Migräne-App
+                        M-sense 300.000-mal heruntergeladen und gehörte zu den
+                        ersten Apps auf Rezept (DiGA) in Deutschland.
+                    </p>
+                    <p>
+                        Über das US-amerikanische Startup <i
+                            >Click Therapeutics</i
+                        > kamen Schizophrenie und Depression als neue Anwendungsgebiete
+                        digitaler Medizin hinzu, heute mit MEDICE ADHS und weiterhin
+                        Depression. Das Hinterland meines <i>Terra incognita</i> heißt
+                        nun: pharmakologische und digitale Therapie zusammendenken.
+                    </p>
+                    <p>
+                        Man könnte darin eine Kette von Zufällen sehen. So sehe
+                        ich es nicht:
+                    </p>
+                    <p>
+                        <b>Serendipität ist, wenn der Zufall das Leben prägt.</b
+                        ><br /><b
+                            >Altamirage ist, wenn das Leben den Zufall prägt.</b
+                        >
+                    </p>
+                    <div class="links">
+                        <a class="btn" href="/vita">Vita lesen</a>
+                        <a
+                            class="btn ghost"
+                            href="https://www.linkedin.com/in/markusdahlem/"
+                            target="_blank"
+                            rel="noopener">LinkedIn ↗</a
+                        >
+                        <a
+                            class="btn ghost"
+                            href="https://scholar.google.com/citations?hl=en&user=1ioM-GYAAAAJ"
+                            target="_blank"
+                            rel="noopener">Publikationen ↗</a
+                        >
+                    </div>
+                </div>
+                <figure class="figure">
+                    <Image
+                        src={vorlesung}
+                        alt="Markus A. Dahlem an der Tafel mit Formeln zur Physik der Migräne"
+                    />
+                    <figcaption class="figcap">
+                        Vorlesung an der TU Berlin — die Entropie des
+                        Kopfschmerzes an der Tafel.
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
 
-    <section class="block wrap reveal">
-      <div class="author">
-        <div class="text">
-          <span class="eyebrow">Über den Autor</span>
-          <h2>Migräneforscher, der die Physik als Werkzeug nimmt.</h2>
-          <p>Ich bin <b>Markus A. Dahlem</b>. Seit Anfang der 1990er Jahre erforsche ich Migräne — studiert habe ich Physik. Mein Ziel: mathematische Modelle entwickeln, die nachvollziehen, was im Migränegehirn geschieht, und sie in klinisch anwendbares Wissen übersetzen.</p>
-          <p>Wenn ich mit theoretischer Physik gegen Migräne forsche, ist das eine ungewöhnliche Tätigkeit. Genau das ist Altamirage.</p>
-          <div class="links">
-            <a class="btn" href="/vita">Vita lesen</a>
-            <a class="btn ghost" href="https://www.linkedin.com/in/markusdahlem/" target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a class="btn ghost" href="https://scholar.google.com/citations?hl=en&user=1ioM-GYAAAAJ" target="_blank" rel="noopener">Publikationen ↗</a>
-          </div>
-        </div>
-        <figure class="figure">
-          <Image src={vorlesung} alt="Markus A. Dahlem an der Tafel mit Formeln zur Physik der Migräne" />
-          <figcaption class="figcap">Vorlesung an der TU Berlin — die Entropie des Kopfschmerzes an der Tafel.</figcaption>
-        </figure>
-      </div>
-    </section>
-  </main>
+        <section class="block wrap reveal">
+            <div class="section-head">
+                <h2>Beiträge</h2>
+                <a class="meta" href="/archiv">Alle Beiträge →</a>
+            </div>
+            <div class="entries">
+                {
+                    recent.map((post) => (
+                        <EntryRow
+                            href={postPath(post)}
+                            date={String(
+                                post.data.pubDate?.getFullYear() ??
+                                    post.data.dateLabel ??
+                                    "",
+                            )}
+                            title={post.data.title}
+                            desc={post.data.description}
+                            sectLabel={
+                                SECTION_LABEL[post.data.section as Section]
+                            }
+                            section={post.data.section}
+                            pill={post.data.lang === "en" ? "EN" : undefined}
+                        />
+                    ))
+                }
+            </div>
+        </section>
+    </main>
 </Base>
