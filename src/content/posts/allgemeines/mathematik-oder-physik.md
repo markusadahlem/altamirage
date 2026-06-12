@@ -16,7 +16,7 @@ Damals waren die Samstagsausgaben der Zeitungen dick, voll mit Annoncen, und die
 
 Zunächst stellte ich fest: Chemie war gut sichtbar vertreten. Klar, es gibt eine chemische Industrie. Aber Chemie passte nicht zu meinen Noten. Von Biologie zu schweigen.
 
-Eine „physikalische Industrie" gab es dagegen nicht. Wenn Physik überhaupt auftauchte, dann im Schatten der boomenden Elektronik. Besonders oft stieß ich auf Ausschreibungen von Siemens.
+Eine „physikalische Industrie" im engeren Sinne gab es dagegen nicht. Wenn Physik überhaupt auftauchte, dann im Schatten der boomenden Elektronik. Besonders oft stieß ich auf Ausschreibungen von Siemens.
 
 Siemens hatte 1983 den ersten Magnetresonanztomographen auf den Markt gebracht — den „Magnetom". Was das eigentlich bedeutete, verstand ich damals nicht; das weiß ich erst heute. Ein Meilenstein: bessere Diagnosen, ohne dass Menschen Röntgenstrahlung ausgesetzt wurden. Mit einem Nachfolgegerät machte 2001 die Arbeitsgruppe von Professorin Nouchine Hadjikhani erstmals bei einem ihrer Mitarbeiter, der mit Migräne lebt, die sogenannte *Migränewelle* sichtbar — jene Welle, für deren mathematische Beschreibung ich später eine *Migräneformel* entwickelte. Mit Nouchine begann daraufhin eine lange, erfolgreiche Kooperation. Aber bis dahin war es ein weiter Weg.
 
@@ -28,7 +28,7 @@ Das aber konnte doch bitte nicht die Entscheidung sein. Ich brauchte ein neues K
 
 Es kam — auf die denkbar grausamste Weise. Am 9. Juli 1986 ermordeten Terroristen der Roten Armee Fraktion Karl Heinz Beckurts und seinen Fahrer Eckhard Groppler mit einer Bombe. Beckurts leitete die zentrale Forschung bei Siemens. Er war Physiker. Auch Karlheinz Kaske, der damalige Vorstandsvorsitzende, war Physiker, was ich dann schnell herausfand.
 
-Es ist makaber, das zuzugeben, aber für den mittlerweise achtzehnjährigen war es ein Fingerzeig: Physik führt offenbar bis in die Schaltzentralen der Gesellschaft. Dorthin, wo Verantwortung getragen wird.
+Es ist makaber, das zuzugeben, aber für den mittlerweile achtzehnjährigen war es ein Fingerzeig: Physik führt offenbar bis in die Schaltzentralen der Gesellschaft. Dorthin, wo Verantwortung getragen wird.
 
 Dass ich aus einem Attentat einen Berufstipp herauslas, sagt vielleicht schon etwas über mich.
 
