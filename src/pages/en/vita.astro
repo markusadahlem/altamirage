@@ -1,0 +1,214 @@
+---
+import { Image } from "astro:assets";
+import Base from "../../layouts/Base.astro";
+import vorlesung from "../../assets/vorlesung-tafel.jpg";
+import innovation from "../../assets/innovation-politik.jpg";
+
+const career = [
+    { when: "2023 — present", role: "VP Discovery & Translational Science", org: "Click Therapeutics", where: "New York, NY · USA" },
+    { when: "2015 — 2022", role: "CEO & Founder", org: "Newsenselab GmbH", where: "Berlin · Germany" },
+    { when: "2000 — present", role: "Founder", org: "Migräne Aura Stiftung", where: "Berlin · Germany" },
+    { when: "2013 — 2017", role: "Senior Scientist", org: "Humboldt-Universität zu Berlin", where: "Berlin · Germany" },
+    { when: "2012 — 2013", role: "Visiting Scholar", org: "The Ohio State University", where: "Columbus, Ohio · USA" },
+    { when: "2007 — 2012", role: "Senior Scientist", org: "Technische Universität Berlin", where: "Berlin · Germany" },
+    { when: "2003 — 2006", role: "Research Group Leader", org: "Otto-von-Guericke-Universität Magdeburg", where: "Magdeburg · Germany" },
+    { when: "2000 — 2002", role: "Research Associate", org: "University of Stirling", where: "Stirling · UK" },
+    { when: "1992 — 1996", role: "Student & Research Assistant — Pattern formation in neural tissue", org: "Max-Planck-Institut für molekulare Physiologie", where: "Dortmund · Germany" },
+];
+
+const education = [
+    { when: "2003 — 2004", role: "Continued Education — Entrepreneurship", org: "Otto-von-Guericke-Universität Magdeburg", where: "Magdeburg · Germany" },
+    { when: "1995 — 2000", role: "PhD Physics", org: "Otto-von-Guericke-Universität Magdeburg", where: "Magdeburg · Germany" },
+    { when: "1996", role: "Postgraduate Studies — Mathematical Biology", org: "University of Utah", where: "Salt Lake City · USA" },
+    { when: "1990 — 1994", role: "Diplom Physics", org: "Universität Göttingen", where: "Göttingen · Germany" },
+    { when: "1988 — 1990", role: "Vordiplom Physics", org: "RWTH Aachen University", where: "Aachen · Germany" },
+];
+---
+
+<Base
+    title="Vita — Markus A. Dahlem · Altamirage"
+    description="Vita of Markus A. Dahlem — physicist, migraine researcher, scientist-entrepreneur."
+    current="vita"
+    locale="en"
+    altHref="/vita"
+>
+    <main>
+        <section class="article wrap" style="padding-bottom: 1rem;">
+            <div class="article-head">
+                <span class="eyebrow">About the author</span>
+                <h1>Markus A. Dahlem</h1>
+                <div class="article-meta">
+                    <span>Physicist</span>
+                    <span>Migraine researcher</span>
+                    <span>Scientist-entrepreneur</span>
+                </div>
+            </div>
+
+            <article class="prose">
+                <p>
+                    My studies began in Aachen with physics and philosophy. They
+                    continued in Göttingen and Magdeburg and were rounded out by
+                    graduate study in mathematical biology in Salt Lake City
+                    (USA).
+                </p>
+                <p>
+                    This interdisciplinary training led me through a range of
+                    fields and research institutions. Among others, I worked at
+                    the Max Planck Institute for Nutritional Physiology in
+                    Dortmund; as a Visiting Research Scholar in biomedical
+                    engineering at the Universidade Estadual de Campinas
+                    (Brazil); at the Department of Psychology of the University
+                    of Stirling (UK); at the Department of Neurology and the
+                    Center for Learning and Memory Research in Magdeburg; and at
+                    the Mathematical Biosciences Institute of the Ohio State
+                    University in Columbus (USA).
+                </p>
+                <p>
+                    I also spent several years as a visiting lecturer on
+                    dynamical diseases at the Technische Universität Berlin and
+                    the Humboldt-Universität zu Berlin. Most recently I
+                    conducted research at the Max Planck Institute for the
+                    Physics of Complex Systems.
+                </p>
+
+                <figure class="wide">
+                    <Image
+                        src={vorlesung}
+                        alt="Markus A. Dahlem at the chalkboard at TU Berlin."
+                    />
+                    <figcaption>
+                        Lecture at TU Berlin. Every place, every field added a
+                        little to my questions: How do you simulate migraine on
+                        a computer? How do you predict attacks — and what do we
+                        learn therapeutically from that?
+                    </figcaption>
+                </figure>
+
+                <h2>Migraine Aura Foundation</h2>
+                <p>
+                    In 2003, together with Dr Klaus Podoll, I founded the <a
+                        class="link"
+                        href="https://www.migraine-aura-foundation.org/"
+                        target="_blank"
+                        rel="noopener"><strong>Migraine Aura Foundation</strong></a
+                    >. It produces medical information and materials that help
+                    people with migraine recognise and understand their
+                    neurological symptoms and take more responsibility for their
+                    health.
+                </p>
+
+                <h2>Newsenselab &amp; M-sense</h2>
+                <p>
+                    In early 2016, with Stefan Greiner, Simon Scholler and
+                    Martin Lysk, I founded the Berlin startup <strong
+                        >Newsenselab</strong
+                    >. We developed a digital therapy for migraine and headache
+                    that was approved in December 2020 as the DiGA <strong
+                        >M-sense Migräne</strong
+                    > — a „prescribable app". My takeaway: eight great years and a
+                    lot of experience gained.
+                </p>
+
+                <figure class="wide">
+                    <Image
+                        src={innovation}
+                        alt="A meeting at the BfArM: Innovation meets policy."
+                    />
+                    <figcaption>
+                        A meeting at the BfArM: „Innovation meets policy" — on
+                        the opportunities of digitalisation in medicine.
+                    </figcaption>
+                </figure>
+            </article>
+        </section>
+
+        <section class="block wrap reveal">
+            <div class="section-head">
+                <div>
+                    <span class="eyebrow">Curriculum vitae</span>
+                    <h2>Stations</h2>
+                </div>
+                <a
+                    class="meta"
+                    href="https://www.linkedin.com/in/markusdahlem/"
+                    target="_blank"
+                    rel="noopener">LinkedIn →</a
+                >
+            </div>
+
+            <div style="max-width: 56rem;">
+                <h3
+                    class="mono"
+                    style="font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); margin: 0 0 0.4rem;"
+                >
+                    Professional career
+                </h3>
+                <div class="timeline">
+                    {
+                        career.map((r) => (
+                            <div class="tl-row">
+                                <div class="when">{r.when}</div>
+                                <div class="what">
+                                    <h3>{r.role}</h3>
+                                    <div class="org">{r.org}</div>
+                                    <div class="where">{r.where}</div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <h3
+                    class="mono"
+                    style="font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); margin: 2.6rem 0 0.4rem;"
+                >
+                    Education
+                </h3>
+                <div class="timeline">
+                    {
+                        education.map((r) => (
+                            <div class="tl-row">
+                                <div class="when">{r.when}</div>
+                                <div class="what">
+                                    <h3>{r.role}</h3>
+                                    <div class="org">{r.org}</div>
+                                    <div class="where">{r.where}</div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div class="prose" style="margin-top: 1.6rem; max-width: 56rem;">
+                <p style="font-size: 0.97rem; color: var(--ink-soft);">
+                    A complete, continuously updated version of this CV is
+                    available on <a
+                        class="link"
+                        href="https://www.linkedin.com/in/markusdahlem/"
+                        target="_blank"
+                        rel="noopener">LinkedIn ↗</a
+                    >.
+                </p>
+            </div>
+
+            <div class="prose" style="margin-top: 2.5rem;">
+                <p style="display:flex; gap:0.7rem; flex-wrap:wrap;">
+                    <a
+                        class="btn"
+                        href="https://scholar.google.com/citations?hl=en&user=1ioM-GYAAAAJ"
+                        target="_blank"
+                        rel="noopener">Publications ↗</a
+                    >
+                    <a
+                        class="btn ghost"
+                        href="https://www.linkedin.com/in/markusdahlem/"
+                        target="_blank"
+                        rel="noopener">LinkedIn ↗</a
+                    >
+                    <a class="btn ghost" href="/archiv">To the archive</a>
+                </p>
+            </div>
+        </section>
+    </main>
+</Base>

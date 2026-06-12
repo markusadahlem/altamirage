@@ -1,0 +1,159 @@
+---
+import { Image } from "astro:assets";
+import Base from "../../layouts/Base.astro";
+import zns from "../../assets/altamirage-zns.png";
+import quixotisch from "../../assets/quixotisch-gegen-migraene.png";
+---
+<Base
+    title="What is Altamirage? — Altamirage"
+    description="Altamirage is a variety of fortunate discovery that arises from unusual pursuits — a concept introduced by the neurologist James H. Austin."
+    current="was-ist-altamirage"
+    locale="en"
+    altHref="/was-ist-altamirage"
+>
+    <main class="article wrap">
+        <div class="article-head">
+            <span class="eyebrow">About</span>
+            <h1>What is Altamirage?</h1>
+            <div class="article-meta">
+                <span>29 January 2023</span>
+                <span>Markus A. Dahlem</span>
+                <span>≈ 6 min read</span>
+            </div>
+        </div>
+
+        <article class="prose">
+            <p class="standfirst">
+                Altamirage is a variety of fortunate discovery that arises from
+                unusual pursuits. It is not only less well known than the
+                related idea of serendipity — it appears, so far, almost
+                exclusively in neurology, where it has its natural origin.
+            </p>
+
+            <p>
+                The term Altamirage was introduced by the neurologist and Zen
+                practitioner James H. Austin to describe a variety of good
+                fortune that arises when someone pursues unusual activities and
+                thereby goes beyond serendipity. Serendipity denotes the
+                principle of chance by which unexpected discoveries are made.
+            </p>
+
+            <p>
+                A classic example of serendipity is the discovery of America
+                while searching for a new sea route to India. Another variety
+                also requires sagacity — to notice „by chance" that something
+                interesting has just happened. Examples include penicillin, the
+                microwave oven, the Post-it note and much more. As a
+                neurologist, Austin understood that serendipity does not cover
+                all varieties of chance discovery.
+            </p>
+
+            <h2>Chance discoveries through the senses and motor action</h2>
+
+            <blockquote>
+                Neurologists are comfortable with this concept, because much of
+                the nervous system we work with consists of anatomically
+                separate sensory and motor units.
+                <cite
+                    >— James H. Austin, <em
+                        >The Varieties of Chance in Scientific Research</em
+                    >, 1979</cite
+                >
+            </blockquote>
+
+            <p>
+                The point, then, is that a discovery — as a process carried out
+                <em>by</em> the brain — always begins with the sensory intake of
+                signals. But the processing must finally be followed by a motor
+                response to complete the flow of information: you see the
+                traffic light switch from red to green, you grasp its meaning —
+                and you cross the street.
+            </p>
+
+            <figure class="wide">
+                <Image
+                    src={zns}
+                    alt="Diagram: serendipity (afferent, blue), sagacity (processing, grey) and altamirage (efferent, red) as three stations in the nervous system."
+                />
+                <figcaption>
+                    The central nervous system (grey) receives sensory data via
+                    afferent nerve fibres (blue) and responds with motor signals
+                    along efferent nerve fibres (red). Three stations, three
+                    kinds of luck: serendipity · sagacity · altamirage.
+                </figcaption>
+            </figure>
+
+            <p>
+                When the decisive precondition is the specific motor action —
+                Austin speaks of <em>„highly individualized action"</em>, with
+                the emphasis on action, not reaction — chance discoveries are
+                called altamirage.
+            </p>
+
+            <h2>Neurology combined with literature and physics</h2>
+
+            <p>
+                It is precisely here that altamirage sets itself apart from the
+                two kinds of serendipity, because it presupposes the role of the
+                unusual activity. Altamirage is the joy you experience when you
+                first create your own <em>terra incognita</em> — and then step
+                into it.
+            </p>
+
+            <p>
+                My own example, too — my professional work, and the reason I
+                named this blog the way I did — is connected to neurology. But
+                the connection is not through literature; it is through physics.
+                When I research migraine with theoretical physics as the
+                methodological frame, that is, admittedly, an unusual activity
+                at first.
+            </p>
+
+            <figure class="wide">
+                <Image
+                    src={quixotisch}
+                    alt="Illustration: fighting migraine with the methods of theoretical physics."
+                />
+                <figcaption>
+                    Fighting migraine with the methods of theoretical physics —
+                    it sounds as heroic as it is futile. Or is it altamirage?
+                </figcaption>
+            </figure>
+
+            <p>In the end, the essence of the distinction might be summed up like this:</p>
+
+            <ul>
+                <li><span class="afferent">Serendipity</span> is when chance shapes a life.</li>
+                <li><span class="efferent">Altamirage</span> is when a life shapes chance.</li>
+            </ul>
+
+            <p>
+                The four variations of luck — including sheer luck — are
+                described <a class="link" href="/die-vier-variationen-des-gluecks">here</a>. I'll
+                leave the conclusion to Austin — perhaps not so much Austin the
+                neurologist as Austin the Zen practitioner:
+            </p>
+
+            <blockquote>
+                Do not rely on your luck. But do not rule it out either. Knowing
+                the kinds of luck can help you avoid doing anything that scares
+                luck away.
+                <cite>— James H. Austin, neurologist and Zen practitioner</cite>
+            </blockquote>
+
+            <div class="footnotes">
+                <h3>Notes &amp; sources</h3>
+                <ol>
+                    <li>Austin, J. H. (1979). „The Varieties of Chance in Scientific Research." <em>Medical Hypotheses</em> 5 (7): 737–41.</li>
+                    <li>Araújo, R. (2022). „Altamirage and the Art of Clinical Neurology." <em>The Lancet Neurology</em> 21 (6): 510.</li>
+                    <li>Bähr, M. &amp; Frotscher, M. (2003). <em>Duus' Topical Diagnosis in Neurology.</em></li>
+                </ol>
+            </div>
+        </article>
+
+        <nav class="prose article-nav">
+            <a class="btn ghost" href="/archiv">← To the archive</a>
+            <a class="btn" href="/die-vier-variationen-des-gluecks">The four variations of luck →</a>
+        </nav>
+    </main>
+</Base>

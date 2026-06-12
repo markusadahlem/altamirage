@@ -20,8 +20,8 @@ export const nav: Record<Locale, NavItem[]> = {
   en: [
     { key: 'start', href: '/en/', label: 'Home' },
     { key: 'archiv', href: '/archiv', label: 'Archive' },
-    { key: 'was-ist-altamirage', href: '/was-ist-altamirage', label: 'About' },
-    { key: 'vita', href: '/vita', label: 'Vita' },
+    { key: 'was-ist-altamirage', href: '/en/was-ist-altamirage', label: 'About' },
+    { key: 'vita', href: '/en/vita', label: 'Vita' },
   ],
 };
 
@@ -63,9 +63,9 @@ export const footer: Record<Locale, {
       { href: '/archiv#en', label: 'Archive (English)' },
     ],
     more: [
-      { href: '/vita', label: 'Vita' },
-      { href: '/was-ist-altamirage', label: 'About' },
-      { href: '/impressum', label: 'Imprint' },
+      { href: '/en/vita', label: 'Vita' },
+      { href: '/en/was-ist-altamirage', label: 'About' },
+      { href: '/en/impressum', label: 'Imprint' },
       { href: 'https://scholar.google.com/citations?hl=en&user=1ioM-GYAAAAJ', label: 'Google Scholar ↗', external: true },
       { href: 'https://www.linkedin.com/in/markusdahlem/', label: 'LinkedIn ↗', external: true },
     ],
