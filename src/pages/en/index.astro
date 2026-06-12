@@ -1,0 +1,161 @@
+---
+import { Image } from "astro:assets";
+import Base from "../../layouts/Base.astro";
+import EntryRow from "../../components/EntryRow.astro";
+import {
+    getPublishedPosts,
+    postPath,
+    SECTION_LABEL,
+    type Section,
+} from "../../lib/posts";
+import vorlesung from "../../assets/vorlesung-tafel.jpg";
+
+const recent = (await getPublishedPosts()).slice(0, 12);
+---
+
+<Base
+    title="Altamirage — Markus A. Dahlem"
+    description="Altamirage — when a life shapes chance. The blog of Markus A. Dahlem on migraine, theoretical physics and the brain."
+    current="start"
+    locale="en"
+>
+    <main>
+        <section class="hero wrap">
+            <h1>Altamirage</h1>
+            <p class="lede">
+                The joy of creating your own <em>terra&nbsp;incognita</em> — and
+                daring to take the first step into it.
+            </p>
+            <p class="hero-aside">
+                <a href="/">Diese Seite auf Deutsch lesen →</a>
+            </p>
+        </section>
+
+        <section class="block wrap reveal">
+            <div class="author">
+                <div class="text">
+                    <span class="eyebrow">About me</span>
+                    <h2>In search of structures.</h2>
+                    <p>
+                        I'm <b>Markus A. Dahlem</b>. I came to migraine research
+                        in the early 1990s — having studied physics first. The
+                        physics of migraine was my first <i>terra incognita</i>:
+                        using mathematics to retrace what happens in the
+                        migraine brain, and to translate that into clinically
+                        useful knowledge.
+                    </p>
+                    <p>
+                        In the early 2000s I wanted to make more of it than
+                        research. On a programmable Nokia phone I built a
+                        prototype and pitched it to a German health insurer: a
+                        way to tell migraine with aura apart from the warning
+                        signs of a stroke, and to spare patients unnecessary
+                        trips to the emergency room. To this day that idea
+                        hasn't really been realised. But the wish to make
+                        digital technology useful for care stayed. In 2015 I
+                        founded a company — at first with a more tangible
+                        approach: digital behavioural therapy for migraine. It
+                        did fail after another eight years. Yet our migraine app
+                        M-sense was downloaded more than 300,000 times and was
+                        among the first prescribable apps (DiGA) in Germany.
+                    </p>
+                    <p>
+                        Through the US startup <i>Click Therapeutics</i>, schizophrenia
+                        and depression joined as new fields for digital medicine
+                        — today ADHD and, still, depression at MEDICE. The
+                        hinterland of my <i>terra incognita</i> is now this: thinking
+                        pharmacological and digital therapy together.
+                    </p>
+                    <p>
+                        One could read all this as a chain of coincidences. I
+                        don't:
+                    </p>
+                    <p>
+                        <b>Serendipity is when chance shapes a life.</b><br /><b
+                            >Altamirage is when a life shapes chance.</b
+                        >
+                    </p>
+                    <div class="links">
+                        <a class="btn" href="/vita">Read the vita</a>
+                        <a
+                            class="btn ghost"
+                            href="https://www.linkedin.com/in/markusdahlem/"
+                            target="_blank"
+                            rel="noopener">LinkedIn ↗</a
+                        >
+                        <a
+                            class="btn ghost"
+                            href="https://scholar.google.com/citations?hl=en&user=1ioM-GYAAAAJ"
+                            target="_blank"
+                            rel="noopener">Publications ↗</a
+                        >
+                    </div>
+                </div>
+                <figure class="figure">
+                    <Image
+                        src={vorlesung}
+                        alt="Markus A. Dahlem at the chalkboard with formulas on the physics of migraine"
+                    />
+                    <figcaption class="figcap">
+                        Lecture at TU Berlin — the entropy of headache on the
+                        chalkboard.
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="block wrap reveal">
+            <div class="section-head">
+                <h2>Posts</h2>
+                <a class="meta" href="/archiv">All posts →</a>
+            </div>
+            <div class="entries">
+                {
+                    recent.map((post) => (
+                        <EntryRow
+                            href={postPath(post)}
+                            date={String(
+                                post.data.pubDate?.getFullYear() ??
+                                    post.data.dateLabel ??
+                                    "",
+                            )}
+                            title={post.data.title}
+                            desc={post.data.description}
+                            sectLabel={
+                                SECTION_LABEL[post.data.section as Section]
+                            }
+                            section={post.data.section}
+                            lang={post.data.lang}
+                            pill={post.data.lang === "en" ? "EN" : "DE"}
+                        />
+                    ))
+                }
+            </div>
+        </section>
+    </main>
+</Base>
+
+<style>
+    .hero-aside {
+        margin-top: 1.6rem;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.03em;
+        color: var(--ink-faint);
+        max-width: 40ch;
+        line-height: 1.7;
+    }
+    .hero-aside a {
+        color: var(--ink-soft);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-color: var(--rule);
+        transition:
+            color 0.2s,
+            text-decoration-color 0.2s;
+    }
+    .hero-aside a:hover {
+        color: var(--ink);
+        text-decoration-color: var(--ink);
+    }
+</style>

@@ -1,31 +1,33 @@
 ---
-// Shared site footer — three-column grid + baseline row.
+// Shared site footer — three-column grid + baseline row, localized chrome.
+import { type Locale, footer, homeHref } from '../lib/i18n';
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'de' } = Astro.props;
+const f = footer[locale];
 ---
 <footer class="foot">
   <div class="wrap">
     <div class="foot-in">
       <div>
-        <a class="brand" href="/">Altamirage</a>
-        <p class="blurb">Serendipität ist, wenn der Zufall das Leben prägt. Altamirage ist, wenn das Leben den Zufall prägt.</p>
+        <a class="brand" href={homeHref[locale]}>Altamirage</a>
+        <p class="blurb">{f.blurb}</p>
       </div>
       <div>
-        <h4>Bereiche</h4>
-        <a href="/archiv#graue-substanz">Graue Substanz</a>
-        <a href="/archiv#allgemeines">Allgemeines</a>
-        <a href="/archiv">Archiv</a>
+        <h4>{f.sectionsHeading}</h4>
+        {f.sections.map((l) => <a href={l.href}>{l.label}</a>)}
       </div>
       <div>
-        <h4>Mehr</h4>
-        <a href="/vita">Vita</a>
-        <a href="/was-ist-altamirage">Was ist Altamirage?</a>
-        <a href="/impressum">Impressum</a>
-        <a href="https://scholar.google.com/citations?hl=en&user=1ioM-GYAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
-        <a href="https://www.linkedin.com/in/markusdahlem/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <h4>{f.moreHeading}</h4>
+        {f.more.map((l) => (
+          <a href={l.href} {...(l.external ? { target: '_blank', rel: 'noopener' } : {})}>{l.label}</a>
+        ))}
       </div>
     </div>
     <div class="foot-base">
       <span>© 2009–2026 Markus A. Dahlem · Berlin / New York</span>
-      <span>Migräne Aura Stiftung · gegr. 2004</span>
+      <span>{f.baselineRight}</span>
     </div>
   </div>
 </footer>

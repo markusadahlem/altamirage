@@ -1,25 +1,42 @@
 ---
-// Sticky, translucent masthead. `current` highlights the active nav item.
+// Sticky, translucent masthead. `current` highlights the active nav item;
+// `locale` selects the language of the chrome; `altHref` is the URL of this
+// page in the other language (for the DE/EN toggle).
+import { type Locale, nav, homeHref, otherLocale } from '../lib/i18n';
+
 interface Props {
-  current?: 'start' | 'archiv' | 'was-ist-altamirage' | 'vita';
+  current?: string;
+  locale?: Locale;
+  altHref?: string;
 }
-const { current } = Astro.props;
-const items = [
-  { key: 'start', href: '/', label: 'Start' },
-  { key: 'archiv', href: '/archiv', label: 'Archiv' },
-  { key: 'was-ist-altamirage', href: '/was-ist-altamirage', label: 'Was ist Altamirage?' },
-  { key: 'vita', href: '/vita', label: 'Vita' },
-] as const;
+const { current, locale = 'de', altHref } = Astro.props;
+const items = nav[locale];
+const other = otherLocale(locale);
+const toggleHref = altHref ?? homeHref[other];
+const toggleLabel = other.toUpperCase(); // "EN" on German pages, "DE" on English
 ---
 <header class="masthead">
   <div class="masthead-in">
-    <a class="brand" href="/">Altamirage</a>
+    <a class="brand" href={homeHref[locale]}>Altamirage</a>
     <nav class="nav">
       {items.map((i) => (
         <a href={i.href} class={current === i.key ? 'current' : undefined}>{i.label}</a>
       ))}
     </nav>
+    <a class="lang-toggle" href={toggleHref} aria-label={`Sprache wechseln zu ${toggleLabel}`}>{toggleLabel}</a>
     <button class="theme-toggle" type="button" aria-label="Hell oder dunkel umschalten">Dunkel</button>
     <button class="btn ghost nav-toggle" type="button" aria-label="Menü">Menü</button>
   </div>
 </header>
+
+<style>
+  .lang-toggle {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    transition: color 0.2s;
+  }
+  .lang-toggle:hover { color: var(--ink); }
+</style>
