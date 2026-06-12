@@ -3,10 +3,11 @@ import Base from '../layouts/Base.astro';
 import EntryRow from '../components/EntryRow.astro';
 import { getPublishedPosts, postPath, dateLabel, SECTION_LABEL, type Section } from '../lib/posts';
 
-// The archive is generated from the posts collection (newest first), plus two
-// entries that aren't collection posts: the standalone "Was ist Altamirage?"
-// page and the not-yet-written "Migränegehirn" book placeholder.
-type Row = { href: string; date: string; title: string; desc: string; section: string; pill?: string; sort: number };
+// The archive is generated from the posts collection (newest first), plus the
+// standalone "Was ist Altamirage?" page. Two filter dimensions — section and
+// language — are applied client-side (see Base.astro); #de / #en deep-link the
+// language views.
+type Row = { href: string; date: string; title: string; desc: string; section: string; lang: string; pill?: string; sort: number };
 
 const yearTime = (y: string) => Date.UTC(Number(y), 0, 1);
 
@@ -17,6 +18,7 @@ const collectionRows: Row[] = posts.map((p) => ({
   title: p.data.title,
   desc: p.data.description ?? '',
   section: p.data.section,
+  lang: p.data.lang,
   pill: p.data.lang === 'en' ? 'EN' : undefined,
   sort: p.data.pubDate
     ? p.data.pubDate.getTime()
@@ -32,6 +34,7 @@ const extraRows: Row[] = [
     title: 'Was ist Altamirage?',
     desc: 'Eine wenig bekannte Variante der glücklichen Entdeckung — aus der Neurologie, wo Sensorik und Motorik anatomisch getrennt sind.',
     section: 'allgemeines',
+    lang: 'de',
     sort: Date.UTC(2023, 0, 29),
   },
 ];
@@ -45,10 +48,23 @@ const rows = [...collectionRows, ...extraRows].sort((a, b) => b.sort - a.sort);
       <h1 style="font-size: clamp(2.6rem, 8vw, 5.5rem);">Archiv</h1>
       <p class="lede" style="max-width: 44ch; font-size: clamp(1.1rem,2vw,1.4rem);">Alle Beiträge seit 2009 — die einen auf Deutsch, die anderen auf Englisch.</p>
 
-      <div class="filterbar" role="group" aria-label="Nach Bereich filtern">
-        <button data-filter="all" aria-pressed="true" type="button">Alle</button>
-        <button data-filter="graue-substanz" aria-pressed="false" type="button">Graue Substanz</button>
-        <button data-filter="allgemeines" aria-pressed="false" type="button">Allgemeines</button>
+      <div class="filters">
+        <div class="filter-row">
+          <span class="filter-label">Bereich</span>
+          <div class="filterbar" data-filter-group="section" role="group" aria-label="Nach Bereich filtern">
+            <button data-filter="all" aria-pressed="true" type="button">Alle</button>
+            <button data-filter="graue-substanz" aria-pressed="false" type="button">Graue Substanz</button>
+            <button data-filter="allgemeines" aria-pressed="false" type="button">Allgemeines</button>
+          </div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">Sprache</span>
+          <div class="filterbar" data-filter-group="lang" role="group" aria-label="Nach Sprache filtern">
+            <button data-filter="all" aria-pressed="true" type="button">Alle Sprachen</button>
+            <button data-filter="de" aria-pressed="false" type="button">Deutsch</button>
+            <button data-filter="en" aria-pressed="false" type="button">English</button>
+          </div>
+        </div>
       </div>
       <p class="mono" data-count style="font-size:0.72rem; letter-spacing:0.08em; color:var(--ink-faint); margin-top:1.1rem; text-transform:uppercase;">{rows.length} Beiträge</p>
     </section>
@@ -63,6 +79,7 @@ const rows = [...collectionRows, ...extraRows].sort((a, b) => b.sort - a.sort);
             desc={e.desc}
             sectLabel={SECTION_LABEL[e.section as Section]}
             section={e.section}
+            lang={e.lang}
             pill={e.pill}
           />
         ))}
@@ -70,3 +87,18 @@ const rows = [...collectionRows, ...extraRows].sort((a, b) => b.sort - a.sort);
     </section>
   </main>
 </Base>
+
+<style>
+  .filters { margin: 2rem 0 0; display: grid; gap: 0.7rem; }
+  .filter-row { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .filter-label {
+    font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ink-faint);
+    width: 4.5rem; flex: none;
+  }
+  .filters .filterbar { margin: 0; }
+  @media (max-width: 560px) {
+    .filter-row { gap: 0.5rem; }
+    .filter-label { width: auto; }
+  }
+</style>

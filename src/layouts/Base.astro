@@ -102,14 +102,16 @@ const {
           els.forEach(function (el) { el.classList.add('in'); });
         }
 
-        // archive filter
-        var filterBar = document.querySelector('.filterbar');
-        if (filterBar) {
+        // archive filters — two independent dimensions: section + language
+        var filterBars = document.querySelectorAll('.filterbar');
+        if (filterBars.length) {
           var entries = Array.prototype.slice.call(document.querySelectorAll('.entries .entry'));
-          function applyFilter(f) {
-            filterBar.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.filter === f)); });
+          var state = { section: 'all', lang: 'all' };
+          function applyFilters() {
             entries.forEach(function (en) {
-              en.hidden = !(f === 'all' || en.dataset.section === f);
+              var okS = state.section === 'all' || en.dataset.section === state.section;
+              var okL = state.lang === 'all' || en.dataset.lang === state.lang;
+              en.hidden = !(okS && okL);
             });
             var count = document.querySelector('[data-count]');
             if (count) {
@@ -117,12 +119,26 @@ const {
               count.textContent = (n < 10 ? '0' + n : n) + ' Beiträge';
             }
           }
-          filterBar.querySelectorAll('button').forEach(function (btn) {
-            btn.addEventListener('click', function () { applyFilter(btn.dataset.filter); });
+          function setActive(group, value) {
+            state[group] = value;
+            filterBars.forEach(function (bar) {
+              if (bar.dataset.filterGroup !== group) return;
+              bar.querySelectorAll('button').forEach(function (b) {
+                b.setAttribute('aria-pressed', String(b.dataset.filter === value));
+              });
+            });
+          }
+          filterBars.forEach(function (bar) {
+            var group = bar.dataset.filterGroup;
+            bar.querySelectorAll('button').forEach(function (btn) {
+              btn.addEventListener('click', function () { setActive(group, btn.dataset.filter); applyFilters(); });
+            });
           });
+          // deep links: #graue-substanz / #allgemeines (section) and #de / #en (language)
           var hash = (location.hash || '').replace('#', '');
-          var valid = ['graue-substanz', 'allgemeines'];
-          if (valid.indexOf(hash) !== -1) applyFilter(hash);
+          if (['graue-substanz', 'allgemeines'].indexOf(hash) !== -1) setActive('section', hash);
+          if (['de', 'en'].indexOf(hash) !== -1) setActive('lang', hash);
+          applyFilters();
         }
 
         // prevent placeholder links from jumping to top
