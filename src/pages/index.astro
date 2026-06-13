@@ -35,12 +35,14 @@ const recent = (await getPublishedPosts()).slice(0, 12);
                         Ich bin <b>Markus A. Dahlem</b>. Diese Seite ist mein
                         privates Archiv: Blogbeiträge, die ich früher an
                         verschiedenen Orten veröffentlicht habe, hier
-                        zusammengetragen — ergänzt um Neues, kurz zu mir selbst:
+                        zusammengetragen — ergänzt um Neues.
                     </p>
+                    <p>Ein paar Worte zu mir – und wie Altamirage entstand.</p>
                     <p>
-                        Anfang der 1990er Jahre kam ich zur Migräneforschung —
-                        studiert hatte ich zuvor Physik. Die Physik der Migräne
-                        war mein erstes <i>Terra incognita</i>: mit Mathematik
+                        Rückblickend begann alles mit meinem ersten <i
+                            >Terra incognita</i
+                        >. Anfang der 1990er Jahre kam ich zur Migräneforschung
+                        — studiert hatte ich zuvor Physik: mit Mathematik
                         nachvollziehen, was im Migränegehirn geschieht, und das
                         in klinisch nutzbares Wissen übersetzen.
                     </p>
@@ -153,7 +155,9 @@ const recent = (await getPublishedPosts()).slice(0, 12);
         text-decoration: underline;
         text-underline-offset: 3px;
         text-decoration-color: var(--rule);
-        transition: color 0.2s, text-decoration-color 0.2s;
+        transition:
+            color 0.2s,
+            text-decoration-color 0.2s;
     }
     .hero-aside a:hover {
         color: var(--ink);
