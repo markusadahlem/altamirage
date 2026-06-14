@@ -22,7 +22,7 @@ Siemens hatte 1983 den ersten Magnetresonanztomographen auf den Markt gebracht �
 
 Zurück zu den Anzeigen. Die meisten Physik-Stellen drehten sich für mich wahrgenommen um Mikroelektronik, was mich bei aller Rationalität nicht überzeugt. Und die Mathematiker? Gesucht wurden Mathematiker seltener — und wenn, dann von Versicherungen und Banken. Mikroelektronik gegen die Dresdner Bank?
 
-Überzeugt war ich von beiden nicht. Und ein großer Unterschied in den Erfolgsaussichten, einen guten Job zu finden, schien letztlich auch nicht zu bestehen. Da ich auch gerne faul war, vielleicht also doch Mathematik? Immerhin war Mathematik für mich, rein vom handwerklichen her, einfacher.
+Überzeugt war ich von beiden nicht. Und ein großer Unterschied in den Erfolgsaussichten, einen guten Job zu finden, schien letztlich auch nicht zu bestehen. Da ich meine Aufmerksamkeit damals auf doch sehr viele Dinge gleichzeitig verteilte – von Büchern bis zu den Cafés der Stadt –, vielleicht also doch Mathematik? Rein vom handwerklichen her schien sie der einfachere Weg zu sein, der mir auch Raum für anders lassen würde.
 
 Das aber konnte doch bitte nicht die Entscheidung sein. Ich brauchte ein neues Kriterium.
 
@@ -32,4 +32,4 @@ Es ist makaber, das zuzugeben, aber für den mittlerweile achtzehnjährigen war 
 
 Dass ich aus einem Attentat einen Berufstipp herauslas, sagt vielleicht schon etwas über mich.
 
-Doch der eigentliche Wink mit dem Zaunpfahl ging damals völlig an mir vorbei, nämlich dass mein Blättern in Stellenanzeigen als empirischer Ansatz den Physiker in mir bereits aufzeigte. Aber eben auch den _anwendungsnahen_ Physiker statt des reinen Grundlagenforschers. Unmittelbare gesellschaftliche Leistung ist mir wichtig.
+Doch der eigentliche Wink mit dem Zaunpfahl ging damals völlig an mir vorbei, nämlich dass mein Blättern in Stellenanzeigen als empirischer Ansatz den Physiker in mir bereits aufzeigte. Aber eben auch den _anwendungsnahen_ Physiker statt des reinen Grundlagenforschers. Unmittelbarer gesellschaftlicher Impact ist mir wichtig.
