@@ -9,6 +9,10 @@ node_modules/
 # generated types
 .astro/
 
+# raw Graue Substanz archive + migration tooling (kept local; the comment
+# files are marked "NICHT zur Wiederveröffentlichung")
+GS_ARCHIV/
+
 # environment / logs
 .env
 .env.production
